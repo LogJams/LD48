@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 72f58d4c20ee80548914ffa11fe54746
   - enabled: 1
-    path: Assets/Scenes/Logan 1.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Logan 2.unity
-    guid: 1f6b841dba370c247bd6e33aa520496e
+    path: Assets/Scenes/Level 2.unity
+    guid: 9716944718fe79e41a1914ae05a25843
   - enabled: 1
-    path: Assets/Scenes/Logan 3.unity
-    guid: d857a1c3738e14c448a463876a6e6e58
+    path: Assets/Scenes/Level 3.unity
+    guid: 27c3304aa48c55d4c96f7cc659d45be5
   m_configObjects: {}
