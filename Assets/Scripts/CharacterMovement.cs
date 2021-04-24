@@ -8,9 +8,18 @@ public class CharacterMovement : MonoBehaviour {
 
     public float speed = 5.0f;
 
+
+    private void Awake() {
+        cc = GetComponent<CharacterController>();
+    }
+
     // Start is called before the first frame update
     void Start() {
-        cc = GetComponent<CharacterController>();
+        if (!GameManager.instance.FirstScene) {
+            cc.enabled = false;
+            transform.position = GameManager.instance.LastPlayerPosition;
+            cc.enabled = true;
+        }
     }
 
     // Update is called once per frame

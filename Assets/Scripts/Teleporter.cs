@@ -21,18 +21,23 @@ public class Teleporter : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        //check if we've pressed down a key to teleport
         if (Input.GetKeyDown(teleportForward) || Input.GetKeyDown(teleportBackward)) {
             timer = holdTime;
-
             dir = 0;
             if (Input.GetKeyDown(teleportForward )) { dir++; }
             if (Input.GetKeyDown(teleportBackward)) { dir--; }
         }
 
-        if ( (dir == 1 && Input.GetKey(teleportForward)) || (dir == -1 && Input.GetKey(teleportBackward))) {
+        //check if the key we're holding is valid
+        if ( ( (dir == 1 && Input.GetKey(teleportForward)) || (dir == -1 && Input.GetKey(teleportBackward) ) ) && GameManager.instance.CanTeleport(dir)) {
             timer -= Time.deltaTime;
+        } else {
+            timer = holdTime;
         }
 
+        //teleport when time reaches 0 (key held for holdTime)
         if (timer <= 0 && !teleporting) {
             teleporting = true;
             StartCoroutine(TeleportCoroutine());
@@ -40,21 +45,18 @@ public class Teleporter : MonoBehaviour {
     }
 
 
-    //asynchronous coroutine that is called to load the next scene when the player teleports
+
+    //asynchronous coroutine that is called while the player teleports
+    //it can do screen shake, UI elements, and particle effects
     IEnumerator TeleportCoroutine() {
 
-        AsyncOperation asyncLoad;
+        GameManager.instance.Teleport(transform.position, dir);
 
-        if (dir == 1) {
-            asyncLoad = SceneManager.LoadSceneAsync(1);
-        }
-        else{
-            asyncLoad = SceneManager.LoadSceneAsync(0);
-        }
-
-        while (!asyncLoad.isDone) {
+        while (true) {
             yield return null;
         }
+
+
     }
 
 
