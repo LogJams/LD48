@@ -16,7 +16,7 @@ public class CharacterMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        Vector3 movement = new Vector3( Input.GetAxisRaw("Horizontal") / 2 - Input.GetAxisRaw("Vertical") / 2, 0, Input.GetAxisRaw("Horizontal") / 2 + Input.GetAxisRaw("Vertical") / 2);
+        Vector3 movement = new Vector3( Input.GetAxisRaw("Horizontal") / 2 + Input.GetAxisRaw("Vertical") / 2, 0, Input.GetAxisRaw("Vertical") / 2 - Input.GetAxisRaw("Horizontal") / 2);
 
         if (movement.sqrMagnitude > 0) {
             movement.Normalize();
