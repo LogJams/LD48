@@ -29,6 +29,8 @@ public class Announcements : MonoBehaviour {
     private int teleportCounter = 0;
     private int idleCounter = 0;
     private int unlockCounter = 0;
+    private int mrJCounter = 0;
+    private int discoverCrystalCounter = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -37,7 +39,8 @@ public class Announcements : MonoBehaviour {
         GameManager.instance.onTeleport += OnPlayerTeleport;
         GameManager.instance.onIdle += OnPlayerIdle;
         GameManager.instance.onUnlockScene += OnUnlockScene;
-
+        GameManager.instance.onMrJTrigger += OnMrJEvent;
+        GameManager.instance.onDiscoverCrystal += OnDiscoverCrystal;
 
         popUpObj = CanvasManager.instance.popupManager.GetPopup();
         popUpText = popUpObj.GetComponentInChildren<Text>();
@@ -48,6 +51,16 @@ public class Announcements : MonoBehaviour {
     void Initialize() {
         player = GameObject.FindGameObjectsWithTag("Player")[0];
 
+    }
+
+    void OnDiscoverCrystal(System.Object sender, EventArgs e) {
+        discoverCrystalCounter++;
+        AnnounceEvent(Announce.EventTypes.discoverCrystal, discoverCrystalCounter);
+    }
+
+    void OnMrJEvent(System.Object sender, EventArgs e) {
+        mrJCounter++;
+        AnnounceEvent(Announce.EventTypes.MrJ, mrJCounter);
     }
 
 

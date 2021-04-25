@@ -8,7 +8,7 @@ using System;
 
 namespace Announce {
     public enum EventTypes {
-        teleport, idle, unlock
+        teleport, idle, unlock, MrJ, discoverCrystal
 
     }
 }
@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
     public event EventHandler<EventArgs> onTeleport = (sender, args) => { }; //trigger when player teleports
     public event EventHandler<EventArgs> onIdle = (sender, args) => { }; //trigger after 30 seconds of idling
     public event EventHandler<EventArgs> onUnlockScene = (sender, args) => { }; //trigger after a scene is unlocked
+    public event EventHandler<EventArgs> onMrJTrigger = (sender, args) => { }; //trigger after we interact with a Mr J trigger
+    public event EventHandler<EventArgs> onDiscoverCrystal = (sender, args) => { }; //trigger after we interact with a Mr J trigger
 
 
     public SceneTransition transitioner;
@@ -28,11 +30,17 @@ public class GameManager : MonoBehaviour {
     public float[] sceneTimes = { 30f, 20f };
     float[] actualSceneTimes = { 30f, 20f };
 
+    public void DiscoverCrystal(GameObject sender) {
+        onDiscoverCrystal.Invoke(sender, EventArgs.Empty);
+    }
     public void Idle(GameObject sender) {
         onIdle.Invoke(sender, EventArgs.Empty);
     }
     public void EnterScence(GameObject sender) {
         onTeleport.Invoke(sender, EventArgs.Empty);
+    }
+    public void MrJEvent(GameObject sender) {
+        onMrJTrigger.Invoke(sender, EventArgs.Empty);
     }
 
 

@@ -30,6 +30,7 @@ public class InteractiveObject : MonoBehaviour
         {
             popUp = true;
             index = Random.Range(0, msg.Length);
+
         }  
     }
     void OnTriggerExit(Collider col)
