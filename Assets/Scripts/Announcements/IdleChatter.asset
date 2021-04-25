@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80227f03b04a3b44d8844edebbfd1e9d, type: 3}
+  m_Name: IdleChatter
+  m_EditorClassIdentifier: 
+  eventType: 1
+  playOnce: 0
+  frequency: 1
+  randomizeAnnouncements: 1
+  playAll: 0
+  announcements:
+  - Better charge my ship up.
+  - What a curious place.
+  - What's that over there?
+  - What a cool rock.
+  - Hello, hello, hello.
+  - Incomprehensible noises.
+  - DEEPER AND DEEPER
+  - '*radio buzzing*'
+  - I miss cake.
+  - Well well well, what do we have here?
+  time: 3

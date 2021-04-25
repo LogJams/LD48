@@ -7,15 +7,16 @@ using UnityEngine.UIElements;
 public class InteractiveObject : MonoBehaviour
 {
     public string[] msg;
-    public GameObject popUpObj;
+    GameObject popUpObj;
     Text popUpText; 
     bool popUp = false;
     Camera cam;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
+        popUpObj = CanvasManager.instance.popupManager.GetPopup();
         popUpObj.SetActive(false);
+
         cam = Camera.main;
     }
 
@@ -52,6 +53,11 @@ public class InteractiveObject : MonoBehaviour
             popUpObj.SetActive(false);
         }
             
+    }
+
+
+    private void OnDestroy() {
+        GameObject.Destroy(popUpObj);
     }
 
 }

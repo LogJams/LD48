@@ -3,7 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using System;
+
+
+namespace Announce {
+    public enum EventTypes {
+        teleport, idle
+
+    }
+}
+
+
 public class GameManager : MonoBehaviour {
+
+    //event handlers for messages
+    public event EventHandler<EventArgs> onTeleport = (sender, args) => { }; //trigger when player teleports
+    public event EventHandler<EventArgs> onIdle = (sender, args) => { }; //trigger after 30 seconds of idling
+
+
+
+    public void Idle(GameObject sender) {
+        onIdle.Invoke(sender, EventArgs.Empty);
+    }
+    public void EnterScence(GameObject sender) {
+        onTeleport.Invoke(sender, EventArgs.Empty);
+    }
+
 
     //we will have a single static GameManager instance
     public static GameManager instance = null;
