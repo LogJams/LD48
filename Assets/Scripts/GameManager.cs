@@ -8,7 +8,7 @@ using System;
 
 namespace Announce {
     public enum EventTypes {
-        teleport, idle
+        teleport, idle, unlock
 
     }
 }
@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     //event handlers for messages
     public event EventHandler<EventArgs> onTeleport = (sender, args) => { }; //trigger when player teleports
     public event EventHandler<EventArgs> onIdle = (sender, args) => { }; //trigger after 30 seconds of idling
+    public event EventHandler<EventArgs> onUnlockScene = (sender, args) => { }; //trigger after a scene is unlocked
 
 
 
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour {
     private int currentScene = 1;
     private uint sceneCount = 3;
 
+    private int unlockedScenes = 1;
+
     //data stored about the player's teleportation
     private bool firstScene = true; //when false the player will override their position with LastPlayerPosition on Awake()
     private Vector3 lastPlayerPosition = new Vector3();
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour {
     //these are public methods of the above private variables that allow getting but not setting from outside
     public bool FirstScene { get { return firstScene; } private set { firstScene = value; } }
     public Vector3 LastPlayerPosition {  get { return lastPlayerPosition; } private set { lastPlayerPosition = value; } }
-
+    public int UnlockedScene {  get { return unlockedScenes; } private set { unlockedScenes = value; } }
 
     private void Awake() {
         //this is a singleton pattern - it ensures that the GameManager only exists once
@@ -71,11 +74,18 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(TeleportCoroutine(currentScene));
     }
 
+    public void UnlockScene(int scene) {
+        if (UnlockedScene + 1 == scene) {
+            UnlockedScene++;
+            onUnlockScene.Invoke(this.gameObject, EventArgs.Empty);
+        }
+    }
+
 
     public bool CanTeleport(int dir) {
         //ensure we're moving to a valid scene
         //we teleport between scenes 1, 2, and 3 (0 is the title scene)
-        return (currentScene + dir <= sceneCount) && (currentScene + dir >= 1);
+        return (currentScene + dir <= unlockedScenes) && (currentScene + dir >= 1);
     }
 
 

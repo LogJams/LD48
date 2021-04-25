@@ -123,5 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   msg:
-  - Nice, it charged my teleporter. Too bad it's too smal to charge the whole ship...
-  popUpObj: {fileID: 0}
+  - Time Crystal

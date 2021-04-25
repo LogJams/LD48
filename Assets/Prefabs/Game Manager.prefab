@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab16984b86af3d545ac1225b6864effb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUpObj: {fileID: 0}
   announcements:
   - {fileID: 11400000, guid: ebeff744c10e19244b4f8dd75cae7793, type: 2}
   - {fileID: 11400000, guid: 8dbbe1a545a9d944f9541004890095a1, type: 2}
+  - {fileID: 11400000, guid: 5fb28e86a92312340abe99ce86e745e1, type: 2}

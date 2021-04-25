@@ -10,9 +10,6 @@ using System;
 
 public class Announcements : MonoBehaviour {
 
-
-    
-
     GameObject player;
 
     GameObject popUpObj;
@@ -29,9 +26,9 @@ public class Announcements : MonoBehaviour {
     private float timer = 0;
 
 
-    private uint teleportCounter = 0;
-    private uint idleCounter = 0;
-
+    private int teleportCounter = 0;
+    private int idleCounter = 0;
+    private int unlockCounter = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -39,6 +36,7 @@ public class Announcements : MonoBehaviour {
 
         GameManager.instance.onTeleport += OnPlayerTeleport;
         GameManager.instance.onIdle += OnPlayerIdle;
+        GameManager.instance.onUnlockScene += OnUnlockScene;
 
 
         popUpObj = CanvasManager.instance.popupManager.GetPopup();
@@ -53,30 +51,34 @@ public class Announcements : MonoBehaviour {
     }
 
 
+    void OnUnlockScene(System.Object sender, EventArgs e) {
+        AnnounceEvent(Announce.EventTypes.unlock, unlockCounter);
+        unlockCounter++;
+    }
+
     void OnPlayerTeleport(System.Object sender, EventArgs e) {
         Initialize(); //only initialize when we enter a new scene to find the player
-        AnnounceEvent(Announce.EventTypes.teleport);
+        teleportCounter++;
+        AnnounceEvent(Announce.EventTypes.teleport, teleportCounter);
     }
 
 
     void OnPlayerIdle(System.Object sender, EventArgs e) {
-        AnnounceEvent(Announce.EventTypes.idle);
+        idleCounter++;
+        AnnounceEvent(Announce.EventTypes.idle, idleCounter);
     }
 
 
 
-    void AnnounceEvent(Announce.EventTypes eventType) {
-
-        teleportCounter++;
-
+    void AnnounceEvent(Announce.EventTypes eventType, int eventCounter) {
         int index = 0;
 
         for(int i = 0; i < announcements.Count; i++) {
             AnnouncementsSO aso = announcements[i];
-            if (aso.eventType == eventType && teleportCounter % aso.frequency == 0) {
+            if (aso.eventType == eventType && eventCounter % aso.frequency == 0) {
                 popUp = true;
                 timer = aso.time;
-                msg = aso.announcements[aso.Announce()];
+                msg = aso.announcements[aso.Announce(eventCounter)];
                 index = i;
 
                 break;

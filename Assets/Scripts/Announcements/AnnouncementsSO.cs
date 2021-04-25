@@ -22,13 +22,13 @@ public class AnnouncementsSO : ScriptableObject {
     public float time = 5f;
 
 
-    public int Announce() {
+    public int Announce(int counter) {
         if (randomizeAnnouncements) {
             return Random.Range(0, announcements.Length);
         }
 
 
-        return 0;
+        return counter % announcements.Length;
     }
 
 
