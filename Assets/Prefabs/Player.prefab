@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  idleTime: 30
 --- !u!114 &7130565386310230148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportForward: 120
   teleportBackward: 122
-  holdTime: 3
+  holdTime: 1
 --- !u!54 &4196475798729270352
 Rigidbody:
   m_ObjectHideFlags: 0

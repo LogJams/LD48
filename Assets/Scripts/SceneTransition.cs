@@ -19,7 +19,6 @@ public class SceneTransition : MonoBehaviour {
     }
 
     public void TransitionOut(float time) {
-        Debug.Log("Transitioning out in " + time);
         blackScreen.enabled = true;
         blackScreen.CrossFadeAlpha(1, time, false);
     }

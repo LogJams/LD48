@@ -23,7 +23,10 @@ public class GameManager : MonoBehaviour {
 
 
     public SceneTransition transitioner;
+    public TimerManager timer;
 
+    public float[] sceneTimes = { 30f, 20f };
+    float[] actualSceneTimes = { 30f, 20f };
 
     public void Idle(GameObject sender) {
         onIdle.Invoke(sender, EventArgs.Empty);
@@ -38,7 +41,6 @@ public class GameManager : MonoBehaviour {
 
     //scene information
     private int currentScene = 1;
-    private uint sceneCount = 3;
 
     private int unlockedScenes = 1;
 
@@ -58,6 +60,10 @@ public class GameManager : MonoBehaviour {
         //this is a singleton pattern - it ensures that the GameManager only exists once
         //first if there is no game manager, then it must be us
         if (instance == null) {
+            //set default scene times
+            actualSceneTimes[0] = sceneTimes[0];
+            actualSceneTimes[1] = sceneTimes[1];
+
             instance = this;
             DontDestroyOnLoad(this.gameObject);
             //listen for scene loads so we can fade in
@@ -72,18 +78,60 @@ public class GameManager : MonoBehaviour {
 
     void OnSceneLoad(Scene scene, LoadSceneMode mode) {
         transitioner.TransitionIn(transitionTime);
+
+        if (currentScene == 1) {
+            timer.gameObject.SetActive(false);
+        } else {
+            timer.gameObject.SetActive(true);
+            timer.Initialize(true, sceneTimes[currentScene-2], actualSceneTimes[currentScene - 2]);
+
+            Debug.Log("transitioning to " + (currentScene - 1) + " with " + actualSceneTimes[currentScene - 2] + " of " + sceneTimes[currentScene - 2] + " seconds");
+
+        }
+
     }
 
+    public void ForceBack() {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Teleporter>().enabled = false;
+        player.GetComponent<CharacterMovement>().enabled = false;
+        Teleport(player.transform.position, -1);
+    }
 
     public void Teleport(Vector3 position, int dir) {
         FirstScene = false;
         LastPlayerPosition = position;
 
+        Debug.Log(sceneTimes[0] + " the first");
+
         //update the scene we are in to the one we are loading
         currentScene += dir;
 
+        //reset "actual time" based on where we are going back to
+        if (dir == -1) {
+            if (currentScene == 2) {
+                actualSceneTimes[1] = sceneTimes[1];
+            }
+            if (currentScene == 1){
+                actualSceneTimes[0] = sceneTimes[0];
+                actualSceneTimes[1] = sceneTimes[1];
+            }
+        }
+        //save "actual time" based on where we're going to
+        if (dir == 1) {
+            if (currentScene == 3) {
+                actualSceneTimes[0] = timer.TimeRemaining;
+            }
+        }
+
+        Debug.Log(sceneTimes[0] + " the 2nd");
+
+        timer.gameObject.SetActive(false);
+
         transitioner.TransitionOut(transitionTime);
         StartCoroutine(TeleportCoroutine(currentScene, transitionTime));
+        Debug.Log(sceneTimes[0] + " the 3rd");
+
     }
 
     public void UnlockScene(int scene) {
