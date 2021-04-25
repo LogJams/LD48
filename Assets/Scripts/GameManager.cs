@@ -84,9 +84,6 @@ public class GameManager : MonoBehaviour {
         } else {
             timer.gameObject.SetActive(true);
             timer.Initialize(true, sceneTimes[currentScene-2], actualSceneTimes[currentScene - 2]);
-
-            Debug.Log("transitioning to " + (currentScene - 1) + " with " + actualSceneTimes[currentScene - 2] + " of " + sceneTimes[currentScene - 2] + " seconds");
-
         }
 
     }
@@ -101,8 +98,6 @@ public class GameManager : MonoBehaviour {
     public void Teleport(Vector3 position, int dir) {
         FirstScene = false;
         LastPlayerPosition = position;
-
-        Debug.Log(sceneTimes[0] + " the first");
 
         //update the scene we are in to the one we are loading
         currentScene += dir;
@@ -124,14 +119,10 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        Debug.Log(sceneTimes[0] + " the 2nd");
-
         timer.gameObject.SetActive(false);
 
         transitioner.TransitionOut(transitionTime);
         StartCoroutine(TeleportCoroutine(currentScene, transitionTime));
-        Debug.Log(sceneTimes[0] + " the 3rd");
-
     }
 
     public void UnlockScene(int scene) {

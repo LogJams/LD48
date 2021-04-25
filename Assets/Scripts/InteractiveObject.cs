@@ -12,6 +12,8 @@ public class InteractiveObject : MonoBehaviour
     bool popUp = false;
     Camera cam;
 
+    int index = 0;
+
     // Start is called before the first frame update
     void Start() {
         popUpObj = CanvasManager.instance.popupManager.GetPopup();
@@ -27,6 +29,7 @@ public class InteractiveObject : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             popUp = true;
+            index = Random.Range(0, msg.Length);
         }  
     }
     void OnTriggerExit(Collider col)
@@ -44,7 +47,7 @@ public class InteractiveObject : MonoBehaviour
             popUpObj.SetActive(true);
             popUpObj.transform.position = screenPos;
             popUpText = popUpObj.GetComponentInChildren<Text>();
-            popUpText.text = msg[0];
+            popUpText.text = msg[ index ];
 
 
         }
