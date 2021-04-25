@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
     public event EventHandler<EventArgs> onUnlockScene = (sender, args) => { }; //trigger after a scene is unlocked
 
 
+    public SceneTransition transitioner;
+
 
     public void Idle(GameObject sender) {
         onIdle.Invoke(sender, EventArgs.Empty);
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour {
 
     private int unlockedScenes = 1;
 
+    private float transitionTime = 1.0f;
+
     //data stored about the player's teleportation
     private bool firstScene = true; //when false the player will override their position with LastPlayerPosition on Awake()
     private Vector3 lastPlayerPosition = new Vector3();
@@ -56,6 +60,8 @@ public class GameManager : MonoBehaviour {
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            //listen for scene loads so we can fade in
+            SceneManager.sceneLoaded += OnSceneLoad;
         }
         //if we are not the game manager then it must be someone else
         if (instance != this) {
@@ -64,14 +70,20 @@ public class GameManager : MonoBehaviour {
     }
 
 
+    void OnSceneLoad(Scene scene, LoadSceneMode mode) {
+        transitioner.TransitionIn(transitionTime);
+    }
+
 
     public void Teleport(Vector3 position, int dir) {
         FirstScene = false;
         LastPlayerPosition = position;
 
+        //update the scene we are in to the one we are loading
         currentScene += dir;
 
-        StartCoroutine(TeleportCoroutine(currentScene));
+        transitioner.TransitionOut(transitionTime);
+        StartCoroutine(TeleportCoroutine(currentScene, transitionTime));
     }
 
     public void UnlockScene(int scene) {
@@ -90,7 +102,11 @@ public class GameManager : MonoBehaviour {
 
 
     //load the scene at index (vector of scenes loaded in build settings)
-    IEnumerator TeleportCoroutine(int idx) {
+    IEnumerator TeleportCoroutine(int idx, float sceneTime) {
+
+        //unity actually loads too fast, so we have to wait here. This may change
+        yield return new WaitForSeconds(sceneTime);
+
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(idx);
 
         while (!asyncLoad.isDone) {
