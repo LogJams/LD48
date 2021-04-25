@@ -18,7 +18,7 @@ MonoBehaviour:
   randomizeAnnouncements: 0
   playAll: 0
   announcements:
-  - something in that field remotely charged my teleporter.
+  - Something in that temple remotely charged my teleporter.
   - Woah, the crystal overcharged my teleporter! Too bad it's too small to power
     the whole ship.
   time: 3
