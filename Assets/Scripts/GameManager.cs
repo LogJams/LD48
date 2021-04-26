@@ -65,8 +65,8 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-
-    private bool bridgeBuilt;
+    [SerializeField]
+    private bool bridgeBuilt = false;
 
     public bool BridgeBuilt { get { return bridgeBuilt; } private set { bridgeBuilt = value; } }
 
