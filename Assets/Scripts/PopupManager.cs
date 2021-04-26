@@ -13,12 +13,12 @@ public class PopupManager : MonoBehaviour {
     public GameObject GetPopup() {
         return Instantiate(popupPanel, this.transform);
     }
-    public GameObject[] GetPopupButtons(int number)
+    public GameObject[] GetPopupButtons(Transform parent, int number)
     {
         GameObject[] popUpButtonsArray = new GameObject[number];
         for(int i=0; i<number; i++)
         {
-            popUpButtonsArray[i] = Instantiate(popUpButtons, this.transform.position + Vector3.down*30*i, new Quaternion(), this.transform);
+            popUpButtonsArray[i] = Instantiate(popUpButtons, this.transform.position + Vector3.down*30*i, new Quaternion(), parent);
         }
         
         return popUpButtonsArray;
