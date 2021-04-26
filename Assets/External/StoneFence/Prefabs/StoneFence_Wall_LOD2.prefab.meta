@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: 5350c0917029d3d48aeaae90c9aaa296
+guid: 304d6e120f768dd418f558bd92acb781
+labels:
+- Stone
+- Fence
+- Wall
+- Post
+- Pillar
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 8574412962073106934
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
