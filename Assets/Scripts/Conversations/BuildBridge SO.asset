@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuildBridge SO
   m_EditorClassIdentifier: 
   eventType: 5
-  OptionIndex: 3
+  OptionIndex: 2
   TextToSay: '"If you build a bridge across the river you can carry a water wheel
     to generate mechanical power."'
   time: 5

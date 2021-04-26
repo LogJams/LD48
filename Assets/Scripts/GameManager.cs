@@ -65,10 +65,15 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    [Header("Game Progress Variables")]
     [SerializeField]
     private bool bridgeBuilt = false;
+    [SerializeField]
+    private bool hasKey = false;
 
     public bool BridgeBuilt { get { return bridgeBuilt; } private set { bridgeBuilt = value; } }
+    public bool HasKey { get { return hasKey; } private set { hasKey = value; } }
+
 
     //we will have a single static GameManager instance
     public static GameManager instance = null;

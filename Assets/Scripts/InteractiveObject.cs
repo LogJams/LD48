@@ -30,6 +30,8 @@ public class InteractiveObject : MonoBehaviour
 
     bool doingResponse = false;
 
+    bool waiting = false; //waiting for timer
+
     Camera cam;
 
     // Start is called before the first frame update
@@ -52,7 +54,7 @@ public class InteractiveObject : MonoBehaviour
         //we can send a button message too
         foreach (ConversTrriggerSO trig in triggers) {
             if (GameManager.instance.BridgeBuilt && trig.eventType == Announce.EventTypes.buildBridge) {
-                popUpButtons[trig.OptionIndex].GetComponent<Button>().enabled = false;
+                popUpButtons[trig.OptionIndex].GetComponent<Button>().interactable = false;
             }
         }
 
@@ -84,10 +86,12 @@ public class InteractiveObject : MonoBehaviour
         foreach (ConversTrriggerSO trig in triggers) {
             if (trig.OptionIndex == buttonIndex) {
                 GameManager.instance.ConversationEvent(this.gameObject, trig);
-                popUpButtons[buttonIndex].GetComponent<Button>().enabled = false;
+                popUpButtons[buttonIndex].GetComponent<Button>().interactable = false;
 
                 //we will make the person wait before responding by deactivating and reactivating
-                activated = false;
+                waiting = true;
+                SetButtons(false);
+                popUpObj.SetActive(false);
                 IEnumerator waitCoroutine = WaitTime(trig.time / 2);
                 StartCoroutine(waitCoroutine);
             }
@@ -96,7 +100,11 @@ public class InteractiveObject : MonoBehaviour
 
     IEnumerator WaitTime(float sec) {
         yield return new WaitForSeconds(sec);
-        activated = true;
+        if (activated) {
+            SetButtons(true);
+            popUpObj.SetActive(true);
+        }
+        waiting = false;
     }
 
 
@@ -136,7 +144,7 @@ public class InteractiveObject : MonoBehaviour
         }
     }
     void Update() {
-        if (!activated) { return; }
+        if (!activated || waiting) { return; }
 
             //check if we haven't popped up yet
             if (!popUp) {
