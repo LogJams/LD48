@@ -24,8 +24,6 @@ public class TempleView : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
-            Debug.Log("Detected player entering");
-
             IEnumerator coroutine = FadeTransparency(false);
             StartCoroutine(coroutine);
         }
