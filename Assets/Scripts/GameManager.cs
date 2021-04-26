@@ -58,6 +58,11 @@ public class GameManager : MonoBehaviour {
     private bool firstScene = true; //when false the player will override their position with LastPlayerPosition on Awake()
     private Vector3 lastPlayerPosition = new Vector3();
 
+    //scene information
+    public int CurrentScene { get { return currentScene; } private set { currentScene = value; } }
+
+
+
 
     //these are public methods of the above private variables that allow getting but not setting from outside
     public bool FirstScene { get { return firstScene; } private set { firstScene = value; } }
