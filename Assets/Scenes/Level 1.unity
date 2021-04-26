@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44703513, g: 0.4969309, b: 0.5750769, a: 1}
+  m_IndirectSpecularColor: {r: 0.447035, g: 0.49693012, b: 0.5750757, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4728,11 +4728,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6906b4e39403f3a4384f734ef5749b80, type: 3}
   m_PrefabInstance: {fileID: 1751897903}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &772241653 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6906b4e39403f3a4384f734ef5749b80, type: 3}
-  m_PrefabInstance: {fileID: 1751897903}
-  m_PrefabAsset: {fileID: 0}
 --- !u!64 &772241656
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7997,7 +7992,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 94b147bf84659df4b972c5998a40b493, type: 3}
 --- !u!4 &1241520073 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 94b147bf84659df4b972c5998a40b493, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1241520072}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1250301570 stripped
@@ -8689,8 +8684,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473430025}
-  - {fileID: 772241653}
   - {fileID: 1519421698}
+  - {fileID: 1751897904}
   - {fileID: 1468890540}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -9054,7 +9049,7 @@ Transform:
   m_LocalScale: {x: 22, y: 1, z: 22}
   m_Children: []
   m_Father: {fileID: 1454163169}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1519421699
 MeshCollider:
@@ -11186,6 +11181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6906b4e39403f3a4384f734ef5749b80, type: 3}
+--- !u!4 &1751897904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1751897903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1754807261
 GameObject:
   m_ObjectHideFlags: 0
