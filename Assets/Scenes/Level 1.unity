@@ -190,7 +190,7 @@ Transform:
   - {fileID: 409061694}
   - {fileID: 2052923599}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9858850
 GameObject:
@@ -802,7 +802,7 @@ Transform:
   - {fileID: 935405569}
   - {fileID: 1313350195}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &85828583
 PrefabInstance:
@@ -1196,7 +1196,7 @@ Transform:
   - {fileID: 251579644}
   - {fileID: 1741219885}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: -168.961, z: 0}
 --- !u!1 &119521985 stripped
 GameObject:
@@ -1397,7 +1397,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164749465
 GameObject:
@@ -2955,7 +2955,7 @@ Transform:
   - {fileID: 563780895}
   - {fileID: 1144401975}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &334158996 stripped
 GameObject:
@@ -3887,7 +3887,7 @@ Transform:
   - {fileID: 1240076887}
   - {fileID: 318923121}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &433084834
 PrefabInstance:
@@ -3982,7 +3982,7 @@ Transform:
   - {fileID: 283239192}
   - {fileID: 804061860}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &445524724
 PrefabInstance:
@@ -4972,7 +4972,7 @@ Transform:
   - {fileID: 646323648}
   - {fileID: 813477790}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &518043086
 GameObject:
@@ -6723,7 +6723,7 @@ Transform:
   - {fileID: 963275729}
   - {fileID: 964668744}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &674506967
 PrefabInstance:
@@ -7149,7 +7149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 131.32199, y: -30, z: 0}
 --- !u!1001 &706055668
 PrefabInstance:
@@ -7459,6 +7459,7 @@ MonoBehaviour:
   - '"Do Not Enter. All animals property of Mr. Worthington."'
   optionsMsgs: []
   responseMsgs: []
+  triggers: []
   isInteractive: 0
 --- !u!65 &727075518
 BoxCollider:
@@ -7569,7 +7570,7 @@ Transform:
   - {fileID: 1216659159}
   - {fileID: 828496496}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &734253766
 PrefabInstance:
@@ -7762,6 +7763,7 @@ MonoBehaviour:
   - Looks like an accident, I better not get involved.
   optionsMsgs: []
   responseMsgs: []
+  triggers: []
   isInteractive: 0
 --- !u!1001 &748177988
 PrefabInstance:
@@ -9351,7 +9353,7 @@ Transform:
   - {fileID: 947436563}
   - {fileID: 1351997503}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891234507 stripped
 GameObject:
@@ -11103,7 +11105,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1034323752
 PrefabInstance:
@@ -11686,7 +11688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1075293367
 MonoBehaviour:
@@ -11889,7 +11891,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1124979417
 PrefabInstance:
@@ -12034,7 +12036,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1131190457
 PrefabInstance:
@@ -12771,7 +12773,7 @@ RectTransform:
   - {fileID: 487189855}
   - {fileID: 1821455307}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13466,20 +13468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94b147bf84659df4b972c5998a40b493, type: 3}
---- !u!4 &1241520073
+--- !u!4 &1241520073 stripped
 Transform:
-  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 94b147bf84659df4b972c5998a40b493, type: 3}
   m_PrefabInstance: {fileID: 1241520072}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540654744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 732189339}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250301570 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: ceae2dc210e1e7e459a3eb0a6de39b4d, type: 3}
@@ -15283,7 +15276,7 @@ Transform:
   - {fileID: 1843980885}
   - {fileID: 1468890540}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1454163170
 SphereCollider:
@@ -15686,9 +15679,17 @@ PrefabInstance:
         ideas?
       objectReference: {fileID: 0}
     - target: {fileID: 6651246361953074863, guid: 6fa3498fc02de9e4792f41c0f96846d6, type: 3}
+      propertyPath: triggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651246361953074863, guid: 6fa3498fc02de9e4792f41c0f96846d6, type: 3}
       propertyPath: optionsMsgs.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6651246361953074863, guid: 6fa3498fc02de9e4792f41c0f96846d6, type: 3}
+      propertyPath: triggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4228becdf6366fd4c820494b4ad43caf, type: 2}
     - target: {fileID: 6651246361953074863, guid: 6fa3498fc02de9e4792f41c0f96846d6, type: 3}
       propertyPath: responseMsgs.Array.size
       value: 3
@@ -16295,7 +16296,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1241520073}
+  - component: {fileID: 1540654745}
   m_Layer: 0
   m_Name: Missing Prefab (Dummy)
   m_TagString: Untagged
@@ -16303,6 +16304,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &1540654745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540654744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1542938240
 GameObject:
   m_ObjectHideFlags: 0
@@ -16798,6 +16813,7 @@ MonoBehaviour:
   - '"Do Not Enter. Farms property of Mr. Worthington."'
   optionsMsgs: []
   responseMsgs: []
+  triggers: []
   isInteractive: 0
 --- !u!65 &1577699807
 BoxCollider:
@@ -17038,7 +17054,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: -5.038, z: 0}
 --- !u!1 &1602987220
 GameObject:
@@ -17517,6 +17533,7 @@ MonoBehaviour:
   - I can't go back yet, the ship doesn't work.
   optionsMsgs: []
   responseMsgs: []
+  triggers: []
   isInteractive: 0
 --- !u!1 &1660100842
 GameObject:
@@ -17548,7 +17565,7 @@ Transform:
   - {fileID: 518043087}
   - {fileID: 1681027478}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 346.102, z: 0}
 --- !u!1001 &1663912309
 PrefabInstance:
@@ -17827,7 +17844,7 @@ Transform:
   - {fileID: 1074590144}
   - {fileID: 684257502}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1681027477
 GameObject:
@@ -18076,7 +18093,7 @@ Transform:
   - {fileID: 1553777040}
   - {fileID: 401225318}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 203.183, z: 0}
 --- !u!1001 &1709762493
 PrefabInstance:
@@ -20174,7 +20191,7 @@ Transform:
   m_LocalScale: {x: 60.525, y: 1, z: 7.0234}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: -32.054, z: 0}
 --- !u!1001 &1908365351
 PrefabInstance:
@@ -20360,7 +20377,7 @@ Transform:
   - {fileID: 1789058610}
   - {fileID: 1750810720}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1920182941
 PrefabInstance:
@@ -21175,7 +21192,7 @@ Transform:
   - {fileID: 802160907}
   - {fileID: 941614286}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2002333105
 PrefabInstance:
@@ -21732,6 +21749,7 @@ MonoBehaviour:
   - '"Do Not Enter. All animals property of Mr. Worthington."'
   optionsMsgs: []
   responseMsgs: []
+  triggers: []
   isInteractive: 0
 --- !u!65 &2046694574
 BoxCollider:
@@ -22899,7 +22917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371827962255366722, guid: f22ab183a13f24c41ada3d79d476de4e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4371827962255366722, guid: f22ab183a13f24c41ada3d79d476de4e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23021,7 +23039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008627923708199408, guid: 94aa47f5b289d434abdd84a51d67c397, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4008627923708199408, guid: 94aa47f5b289d434abdd84a51d67c397, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23252,7 +23270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7432590012414455099, guid: 1ef8d5fe5f49cb647a7fe1dd06f0bd4c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7432590012414455099, guid: 1ef8d5fe5f49cb647a7fe1dd06f0bd4c, type: 3}
       propertyPath: m_LocalPosition.x

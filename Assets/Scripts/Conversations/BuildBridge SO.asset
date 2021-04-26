@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a2ca0f02c2fef2459f47cb78735cd2b, type: 3}
-  m_Name: New Convers Trrigger SO
+  m_Name: BuildBridge SO
   m_EditorClassIdentifier: 
   eventType: 5
   OptionIndex: 3
-  TextToSay: 
-  time: 0
+  TextToSay: '"If you build a bridge across the river you can carry a water wheel
+    to generate mechanical power."'
+  time: 5
