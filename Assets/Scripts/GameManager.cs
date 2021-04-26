@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour {
     //we will have a single static GameManager instance
     public static GameManager instance = null;
 
+    public KeyCode interactKey = KeyCode.Space;
+
     //scene information
     private int currentScene = 1;
 

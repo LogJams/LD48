@@ -7,6 +7,7 @@ public class CanvasManager : MonoBehaviour {
     public static CanvasManager instance;
 
     public PopupManager popupManager;
+    public Conversation talkIndicator;
 
     private void Awake() {
         //this is a singleton pattern - it ensures that the GameManager only exists once

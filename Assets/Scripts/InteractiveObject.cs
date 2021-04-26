@@ -7,23 +7,28 @@ using UnityEngine.UIElements;
 public class InteractiveObject : MonoBehaviour
 {
     [Header("Interaction Variables")]
-    public KeyCode interact = KeyCode.Space;
-
     public string[] msg;
-    public string[] optionsMsgs; 
+    public string[] optionsMsgs;
+    public string[] responseMsgs;
+
+    string messageToUse;
+
     GameObject popUpObj;
    
     Text popUpText;
 
-    public bool isPopUpButton;
+    public bool isInteractive;
     int numberOfButtons;
     GameObject[] popUpButtons ; //TODO: We should get it from Canvas Manager
-    bool popUp = false;
-    
+
+    //activated is used to determine if we're in the zone or not
+    bool activated = false;
+    bool popUp = false; //popUp is changed when we hit the interact key
+    bool showButtons = false; //this is whether we want to show or hide the buttons
+
+    bool doingResponse = false;
 
     Camera cam;
-
-    int index = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -34,11 +39,15 @@ public class InteractiveObject : MonoBehaviour
         CreateButtons();
     }
 
-    void CreateButtons()
-    {
-       popUpButtons = CanvasManager.instance.popupManager.GetPopupButtons(numberOfButtons);
+    void CreateButtons() {
+        popUpButtons = CanvasManager.instance.popupManager.GetPopupButtons(popUpObj.transform, numberOfButtons);
+        for (int i = 0; i < numberOfButtons; i++) {
+            popUpButtons[i].GetComponentInChildren<PopupButton>().index = i;
+            popUpButtons[i].GetComponentInChildren<PopupButton>().parent = this;
+        }
         SetButtons(false);
     }
+
     void SetButtons(bool status)
     {
         for (int i = 0; i < numberOfButtons; i++)
@@ -47,16 +56,44 @@ public class InteractiveObject : MonoBehaviour
             popUpButtons[i].GetComponentInChildren<Text>().text =  optionsMsgs[i];
         }
     }
-    // Update is called once per frame
 
-  
+
+    public void OnClick(int buttonIndex) {
+        //do something here with the button click
+        showButtons = false;
+        if (responseMsgs.Length > buttonIndex && !doingResponse) {
+            //update the text
+            doingResponse = true;
+            messageToUse = responseMsgs[buttonIndex];
+        } else {
+            Reset();
+        }
+
+    }
+
+
+    private void Reset() {
+        //reset the cat to the beginning
+        activated = false;
+        popUp = false;
+        doingResponse = false;
+        SetButtons(false);
+        popUpObj.SetActive(false);
+    }
+
+
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "Player")
-        {
-            popUp = true;
-            index = Random.Range(0, msg.Length);
+        if(col.gameObject.tag == "Player") {
+            activated = true;
+            messageToUse = msg[Random.Range(0, msg.Length)];
+            showButtons = true;
+            //pop up right away if we're not interactive
+            popUp = !isInteractive;
+            if (isInteractive) {
+                CanvasManager.instance.talkIndicator.Add();
+            }
         }
 
     }
@@ -64,32 +101,40 @@ public class InteractiveObject : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            popUp = false; 
+            Reset();
+            if (isInteractive) {
+                CanvasManager.instance.talkIndicator.Remove();
+            }
         }
     }
-    void Update()
-    {
-        if (popUp)
-        {
-            Vector3 screenPos = cam.WorldToScreenPoint(transform.position + new Vector3(3f, 3f));
-            popUpObj.SetActive(true);
-            popUpObj.transform.position = screenPos;
-            popUpText = popUpObj.GetComponentInChildren<Text>();
-            popUpText.text = msg[ index ];
+    void Update() {
+        if (!activated) { return; }
 
-            // If popUpButtons
-            if (Input.GetKeyDown(interact) && isPopUpButton)
-            {
-                SetButtons(true);
+            //check if we haven't popped up yet
+            if (!popUp) {
+                //play some particle effect to show we can interact with the object
+                if (Input.GetKeyDown(GameManager.instance.interactKey) && isInteractive) {
+                    popUp = true;
+                    showButtons = true;
+                }
             }
 
-        }
-        else
-        {
-            popUpObj.SetActive(false);
-            SetButtons(false);
+            //check if we have popped up, if so we display everything
+            if (popUp) {
+                //set the screen position and activate
+                Vector3 screenPos = cam.WorldToScreenPoint(transform.position + new Vector3(3f, 3f));
+                popUpObj.SetActive(true);
+                SetButtons(showButtons);
+                popUpObj.transform.position = screenPos;
+                //set the text
+                popUpText = popUpObj.GetComponentInChildren<Text>();
+                popUpText.text = messageToUse;
+            }
 
-        }
+            // If popUpButtons
+            //if (Input.GetKeyDown(interact) && isPopUpButton)  {
+            //    SetButtons(true);
+            //}
             
     }
 
