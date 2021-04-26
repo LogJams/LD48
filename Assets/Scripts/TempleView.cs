@@ -8,12 +8,17 @@ public class TempleView : MonoBehaviour {
 
     public GameObject toFade;
 
-    Material material;
-    Color originalColor;
+    List<Material> materials;
+    List<Color> originalColors;
 
     private void Start() {
-        material = toFade.GetComponent<MeshRenderer>().materials[0];
-        originalColor = material.color;
+
+        materials = new List<Material>(toFade.GetComponent<MeshRenderer>().materials);
+        originalColors = new List<Color>();
+
+        foreach (Material mat in toFade.GetComponent<MeshRenderer>().materials) {
+            originalColors.Add(mat.color);
+        }
     }
 
 
@@ -37,24 +42,25 @@ public class TempleView : MonoBehaviour {
     private IEnumerator FadeTransparency(bool visible) {
 
         float timer = fadeTime;
-        toFade.SetActive(true);
 
 
         while (timer >= 0) {
             timer -= Time.deltaTime;
-            if (visible) {
-                material.color = Color.Lerp(originalColor, new Color(1, 1, 1, 0), timer / fadeTime);
-            } else {
-                material.color = Color.Lerp(new Color(1, 1, 1, 0), originalColor, timer / fadeTime);
+            for (int i = 0; i < materials.Count; i++) {
+                if (visible) {
+                    materials[i].color = Color.Lerp(originalColors[i], new Color(1, 1, 1, 0), timer / fadeTime);
+                } else {
+                    materials[i].color = Color.Lerp(new Color(1, 1, 1, 0), originalColors[i], timer / fadeTime);
+                }
             }
             yield return null;
         }
 
 
         if (visible) {
-            material.color = originalColor;
-        } else {
-            toFade.SetActive(false);
+            for (int i = 0; i < materials.Count; i++) {
+                materials[i].color = originalColors[i];
+            }
         }
 
     }
