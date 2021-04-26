@@ -41,6 +41,7 @@ public class Announcements : MonoBehaviour {
         GameManager.instance.onUnlockScene += OnUnlockScene;
         GameManager.instance.onMrJTrigger += OnMrJEvent;
         GameManager.instance.onDiscoverCrystal += OnDiscoverCrystal;
+        GameManager.instance.onConversation += OnBridgeBuilt;
 
         popUpObj = CanvasManager.instance.popupManager.GetPopup();
         popUpText = popUpObj.GetComponentInChildren<Text>();
@@ -51,6 +52,12 @@ public class Announcements : MonoBehaviour {
     void Initialize() {
         player = GameObject.FindGameObjectsWithTag("Player")[0];
 
+    }
+
+    void OnBridgeBuilt(System.Object sender, ConversationEventArgs e) {
+        popUp = true;
+        timer = e.time;
+        msg = e.toSay;
     }
 
     void OnDiscoverCrystal(System.Object sender, EventArgs e) {
