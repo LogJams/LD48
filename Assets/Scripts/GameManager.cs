@@ -8,11 +8,16 @@ using System;
 
 namespace Announce {
     public enum EventTypes {
-        teleport, idle, unlock, MrJ, discoverCrystal
+        teleport, idle, unlock, MrJ, discoverCrystal, buildBridge
 
     }
 }
 
+public class ConversationEventArgs : EventArgs {
+    public Announce.EventTypes type;
+    public string toSay;
+    public float time;
+}
 
 public class GameManager : MonoBehaviour {
 
@@ -22,6 +27,9 @@ public class GameManager : MonoBehaviour {
     public event EventHandler<EventArgs> onUnlockScene = (sender, args) => { }; //trigger after a scene is unlocked
     public event EventHandler<EventArgs> onMrJTrigger = (sender, args) => { }; //trigger after we interact with a Mr J trigger
     public event EventHandler<EventArgs> onDiscoverCrystal = (sender, args) => { }; //trigger after we interact with a Mr J trigger
+    public event EventHandler<ConversationEventArgs> onConversation = (sender, args) => { }; //trigger for conversation events
+
+
 
 
     public SceneTransition transitioner;
@@ -43,6 +51,24 @@ public class GameManager : MonoBehaviour {
         onMrJTrigger.Invoke(sender, EventArgs.Empty);
     }
 
+    public void ConversationEvent(GameObject sender, ConversTrriggerSO trigger) {
+
+        if (trigger.eventType == Announce.EventTypes.buildBridge && !bridgeBuilt) {
+
+            ConversationEventArgs args = new ConversationEventArgs();
+            args.type = trigger.eventType;
+            args.toSay = trigger.TextToSay;
+            args.time = trigger.time;
+
+            onConversation.Invoke(sender, args);
+            bridgeBuilt = true;
+        }
+    }
+
+
+    private bool bridgeBuilt;
+
+    public bool BridgeBuilt { get { return bridgeBuilt; } private set { bridgeBuilt = value; } }
 
     //we will have a single static GameManager instance
     public static GameManager instance = null;

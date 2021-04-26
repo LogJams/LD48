@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class InteractiveObject : MonoBehaviour
 {
@@ -10,6 +9,9 @@ public class InteractiveObject : MonoBehaviour
     public string[] msg;
     public string[] optionsMsgs;
     public string[] responseMsgs;
+
+
+    public List<ConversTrriggerSO> triggers;
 
     string messageToUse;
 
@@ -46,6 +48,15 @@ public class InteractiveObject : MonoBehaviour
             popUpButtons[i].GetComponentInChildren<PopupButton>().parent = this;
         }
         SetButtons(false);
+        //check if the button is an event that happened, so we should disable it
+        //we can send a button message too
+        foreach (ConversTrriggerSO trig in triggers) {
+            if (GameManager.instance.BridgeBuilt && trig.eventType == Announce.EventTypes.buildBridge) {
+                popUpButtons[trig.OptionIndex].GetComponent<Button>().enabled = false;
+            }
+        }
+
+
     }
 
     void SetButtons(bool status)
@@ -69,6 +80,23 @@ public class InteractiveObject : MonoBehaviour
             Reset();
         }
 
+        //we can send a button message too
+        foreach (ConversTrriggerSO trig in triggers) {
+            if (trig.OptionIndex == buttonIndex) {
+                GameManager.instance.ConversationEvent(this.gameObject, trig);
+                popUpButtons[buttonIndex].GetComponent<Button>().enabled = false;
+
+                //we will make the person wait before responding by deactivating and reactivating
+                activated = false;
+                IEnumerator waitCoroutine = WaitTime(trig.time / 2);
+                StartCoroutine(waitCoroutine);
+            }
+        }
+    }
+
+    IEnumerator WaitTime(float sec) {
+        yield return new WaitForSeconds(sec);
+        activated = true;
     }
 
 
