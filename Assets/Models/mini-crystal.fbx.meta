@@ -1,23 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/External/Hand-Painted Fountain/Meshes/Meshes_Collisions/col_Fountain.FBX.meta
-guid: 94b147bf84659df4b972c5998a40b493
-timeCreated: 1436874631
-licenseType: Store
-ModelImporter:
-  serializedVersion: 18
-  fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: col_Fountain
-=======
-guid: 8451596a501c48e4f9789d1cda1f142f
+guid: a8f955f3d37838d4fb60f832e09cd5c0
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
   externalObjects: {}
->>>>>>> 83e4f03c0ae60872365267155fa0148952693428:Assets/Models/mini-crystal.blend.meta
   materials:
     materialImportMode: 2
     materialName: 0
@@ -26,6 +12,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
@@ -37,22 +24,19 @@ ModelImporter:
     importAnimatedCustomProperties: 0
     importConstraints: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-<<<<<<< HEAD:Assets/External/Hand-Painted Fountain/Meshes/Meshes_Collisions/col_Fountain.FBX.meta
-    importBlendShapes: 1
-=======
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
@@ -60,7 +44,6 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     fileIdsGeneration: 2
->>>>>>> 83e4f03c0ae60872365267155fa0148952693428:Assets/Models/mini-crystal.blend.meta
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -80,42 +63,30 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-<<<<<<< HEAD:Assets/External/Hand-Painted Fountain/Meshes/Meshes_Collisions/col_Fountain.FBX.meta
-    tangentImportMode: 1
-=======
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
->>>>>>> 83e4f03c0ae60872365267155fa0148952693428:Assets/Models/mini-crystal.blend.meta
   importAnimation: 1
   humanDescription:
-<<<<<<< HEAD:Assets/External/Hand-Painted Fountain/Meshes/Meshes_Collisions/col_Fountain.FBX.meta
-=======
     serializedVersion: 3
->>>>>>> 83e4f03c0ae60872365267155fa0148952693428:Assets/Models/mini-crystal.blend.meta
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
     rootMotionBoneName: 
-<<<<<<< HEAD:Assets/External/Hand-Painted Fountain/Meshes/Meshes_Collisions/col_Fountain.FBX.meta
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
-=======
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -125,7 +96,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
->>>>>>> 83e4f03c0ae60872365267155fa0148952693428:Assets/Models/mini-crystal.blend.meta
   additionalBone: 0
   userData: 
   assetBundleName: 
