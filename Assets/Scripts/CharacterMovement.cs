@@ -59,6 +59,9 @@ public class CharacterMovement : MonoBehaviour {
         }
 
         else {
+
+
+
             anim.SetFloat("X Speed", 0); // x speed
             anim.SetFloat("Y Speed", 0); // y speed
             anim.SetFloat("Total Speed", 0); //  total speed
