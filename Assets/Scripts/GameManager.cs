@@ -8,7 +8,7 @@ using System;
 
 namespace Announce {
     public enum EventTypes {
-        teleport, idle, unlock, MrJ, discoverCrystal, buildBridge
+        teleport, idle, unlock, MrJ, discoverCrystal, buildBridge, getKey
 
     }
 }
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
     public event EventHandler<EventArgs> onMrJTrigger = (sender, args) => { }; //trigger after we interact with a Mr J trigger
     public event EventHandler<EventArgs> onDiscoverCrystal = (sender, args) => { }; //trigger after we interact with a Mr J trigger
     public event EventHandler<ConversationEventArgs> onConversation = (sender, args) => { }; //trigger for conversation events
+    public event EventHandler<EventArgs> onGetKey = (sender, args) => { }; //trigger for conversation events
 
 
 
@@ -132,6 +133,22 @@ public class GameManager : MonoBehaviour {
             timer.Initialize(true, sceneTimes[currentScene-2], actualSceneTimes[currentScene - 2]);
         }
 
+    }
+
+
+    public void GetKey() {
+        if (!hasKey) {
+            onGetKey.Invoke(this.gameObject, EventArgs.Empty);
+        }
+        hasKey = true;
+    }
+
+    public void OhShit() {
+
+    }
+
+    public void TheEnd() {
+        SceneManager.LoadScene(4);
     }
 
     public void ForceBack() {

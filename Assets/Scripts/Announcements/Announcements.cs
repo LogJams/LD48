@@ -42,6 +42,7 @@ public class Announcements : MonoBehaviour {
         GameManager.instance.onMrJTrigger += OnMrJEvent;
         GameManager.instance.onDiscoverCrystal += OnDiscoverCrystal;
         GameManager.instance.onConversation += OnBridgeBuilt;
+        GameManager.instance.onGetKey += OnGetKey;
 
         popUpObj = CanvasManager.instance.popupManager.GetPopup();
         popUpText = popUpObj.GetComponentInChildren<Text>();
@@ -52,6 +53,10 @@ public class Announcements : MonoBehaviour {
     void Initialize() {
         player = GameObject.FindGameObjectsWithTag("Player")[0];
 
+    }
+
+    void OnGetKey(System.Object sender, EventArgs e) {
+        AnnounceEvent(Announce.EventTypes.getKey, 0);
     }
 
     void OnBridgeBuilt(System.Object sender, ConversationEventArgs e) {

@@ -49,6 +49,9 @@ MonoBehaviour:
   sceneTimes:
   - 20
   - 10
+  bridgeBuilt: 0
+  hasKey: 0
+  interactKey: 32
 --- !u!1 &7285199678090055181
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,3 +101,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5fb28e86a92312340abe99ce86e745e1, type: 2}
   - {fileID: 11400000, guid: 64d1025df7f9aca44a7418a6d2fdc628, type: 2}
   - {fileID: 11400000, guid: b1de850cbb9e03249aa888e4537e6bdb, type: 2}
+  - {fileID: 11400000, guid: eb601491305b36a429be1dfa7bb4fbb8, type: 2}
