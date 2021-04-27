@@ -47,18 +47,13 @@ public class CharacterMovement : MonoBehaviour {
         RaycastHit hitInfo;
         int layer_mask = LayerMask.GetMask("Water");
 
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, Mathf.Infinity, layer_mask)) {
-            lookPos = hitInfo.point;
-            lookPos.y = transform.position.y;
-            transform.LookAt(lookPos);
-        }
-
         if (movement.sqrMagnitude > 0) {
-
-
 
             movement.Normalize();
 
+            lookPos = transform.position + movement;
+
+            transform.LookAt(lookPos);
 
             //forward/backward motion
             float forwardSpeed = Vector3.Dot(movement, (lookPos - transform.position).normalized );

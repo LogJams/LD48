@@ -158,7 +158,7 @@ public class InteractiveObject : MonoBehaviour
             //check if we have popped up, if so we display everything
             if (popUp) {
                 //set the screen position and activate
-                Vector3 screenPos = cam.WorldToScreenPoint(transform.position + new Vector3(3f, 3f));
+                Vector3 screenPos = cam.WorldToScreenPoint(transform.position + new Vector3(0f, 3f, 0f));
                 popUpObj.SetActive(true);
                 SetButtons(showButtons);
                 popUpObj.transform.position = screenPos;

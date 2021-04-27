@@ -124,7 +124,7 @@ public class Announcements : MonoBehaviour {
         }
 
         if (popUp) {
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(3f, 3f));
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(player.transform.position + new Vector3(0f, 3f, 0f));
             popUpObj.SetActive(true);
             popUpObj.transform.position = screenPos;
             popUpText.text = msg;
