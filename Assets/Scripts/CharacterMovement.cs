@@ -14,6 +14,8 @@ public class CharacterMovement : MonoBehaviour {
 
     float timer = 0;
 
+    Vector3 lookPos = new Vector3(1, 0, 0);
+
     private void Awake() {
         cc = GetComponent<CharacterController>();
         timer = idleTime;
@@ -40,30 +42,38 @@ public class CharacterMovement : MonoBehaviour {
 
         Vector3 movement = new Vector3( Input.GetAxisRaw("Horizontal") / 2 + Input.GetAxisRaw("Vertical") / 2, 0, Input.GetAxisRaw("Vertical") / 2 - Input.GetAxisRaw("Horizontal") / 2);
 
+
+        //look towards mouse when moving
+        RaycastHit hitInfo;
+        int layer_mask = LayerMask.GetMask("Terain");
+
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, layer_mask)) {
+            lookPos = hitInfo.point;
+            lookPos.y = transform.position.y;
+            transform.LookAt(lookPos);
+        }
+
         if (movement.sqrMagnitude > 0) {
 
-            //look towards mouse when moving
-            RaycastHit hitInfo;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo)) {
-                Vector3 lookPos = hitInfo.point;
-                lookPos.y = transform.position.y;
-                transform.LookAt(lookPos);
-            }
 
+
+            movement.Normalize();
+
+
+            //forward/backward motion
+            float forwardSpeed = Vector3.Dot(movement, (lookPos - transform.position).normalized );
+            //left right motion
+            float strafeSpeed = Vector3.Dot(movement, (lookPos - transform.position).normalized);
 
             timer = idleTime;
-            movement.Normalize();
-            anim.SetFloat("X Speed", Input.GetAxis("Vertical")); // x speed
-            anim.SetFloat("Y Speed", Input.GetAxis("Horizontal")); // y speed
+            anim.SetFloat("X Speed", strafeSpeed); // x speed
+            anim.SetFloat("Z Speed", forwardSpeed); // y speed
             anim.SetFloat("Total Speed", 1.0f); //  total speed
         }
 
         else {
-
-
-
             anim.SetFloat("X Speed", 0); // x speed
-            anim.SetFloat("Y Speed", 0); // y speed
+            anim.SetFloat("Z Speed", 0); // y speed
             anim.SetFloat("Total Speed", 0); //  total speed
         }
 
