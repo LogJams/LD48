@@ -17,7 +17,7 @@ PUZZLE #1: Acquire the Small Crystal
 - Touch the small crystel to "power up your teleporter"
 - Hold X to teleport forward in time
 - Hold X to teleport forward in time again
-- Escape the House
+- Escape the fenced in yard area
 
 
 
