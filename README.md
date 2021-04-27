@@ -21,7 +21,7 @@ PUZZLE #1: Acquire the Small Crystal
 
 
 
-
+![Diagram showing how to solve the puzzle in "Level 2"](https://github.com/LogJams/LD48/blob/main/images/Crystal-Level2.png)
 
 
 
