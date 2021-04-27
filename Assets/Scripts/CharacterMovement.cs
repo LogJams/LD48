@@ -45,9 +45,9 @@ public class CharacterMovement : MonoBehaviour {
 
         //look towards mouse when moving
         RaycastHit hitInfo;
-        int layer_mask = LayerMask.GetMask("Terain");
+        int layer_mask = LayerMask.GetMask("Water");
 
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, layer_mask)) {
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, Mathf.Infinity, layer_mask)) {
             lookPos = hitInfo.point;
             lookPos.y = transform.position.y;
             transform.LookAt(lookPos);
