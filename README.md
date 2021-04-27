@@ -12,7 +12,7 @@ SPOILERS FOR PUZZLE SOLUTIONS:
 PUZZLE #1: Acquire the Small Crystal
 - Travel to the temple to "activate your teleporter"
 - Hold X for 2-3 seconds to teleport forward in time
-- Travel back toward the house with the small crystal and climb up the steps to jump into the yard
+- Travel back toward the house with the small crystal and climb up the steps of the blue house adjacent to the fence in order to jump into the yard
 - Hold Z to travel back to the "present"
 - Touch the small crystel to "power up your teleporter"
 - Hold X to teleport forward in time
