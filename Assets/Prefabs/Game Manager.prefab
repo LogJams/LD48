@@ -48,7 +48,7 @@ MonoBehaviour:
   timer: {fileID: 0}
   sceneTimes:
   - 30
-  - 30
+  - 20
   bridgeBuilt: 0
   hasKey: 0
   interactKey: 32

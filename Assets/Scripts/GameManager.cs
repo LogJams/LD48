@@ -144,7 +144,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void OhShit() {
-
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Teleporter>().enabled = false;
+        player.GetComponent<CharacterMovement>().enabled = false;
+        Teleport(new Vector3(-1, 1, -1), 1 - currentScene);
     }
 
     public void TheEnd() {
