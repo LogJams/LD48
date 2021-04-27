@@ -17,14 +17,17 @@ public class TimeControlUi : MonoBehaviour {
 
     //called only when the first level is loaded for the first time
     private void Awake() {
-        //set up our on level load callback
-        SceneManager.sceneLoaded += this.OnLevelLoad;
-
         //configure scene 1
         backIcon.color = new Color(1, 1, 1, 0);
+        backwardText.SetActive(false);
+        forwardIcon.color = new Color(1, 1, 1, 0);
+        forwardText.SetActive(false);
 
+    }
+
+    private void Start() {
+        SceneManager.sceneLoaded += this.OnLevelLoad;
         GameManager.instance.onUnlockScene += OnCrystalPickup;
-
     }
 
 
@@ -45,8 +48,16 @@ public class TimeControlUi : MonoBehaviour {
         }
     }
 
-    //our callback for updating the ui
-    private void OnLevelLoad(Scene scene, LoadSceneMode sceneMode) {
+    /*
+    public void Update() {
+        if (GameManager.instance.CurrentScene == 1 && GameManager.instance.UnlockedScene >= 2) {
+            forwardIcon.color = new Color(1, 1, 1, 1);
+            forwardText.SetActive(true);
+        }
+    }*/
+
+        //our callback for updating the ui
+        private void OnLevelLoad(Scene scene, LoadSceneMode sceneMode) {
 
         if (GameManager.instance.CurrentScene == 1) {
             //hide the back icon
@@ -58,8 +69,8 @@ public class TimeControlUi : MonoBehaviour {
                 forwardIcon.color = new Color(1, 1, 1, 1);
                 forwardText.SetActive(true);
             } else {
-                forwardIcon.color = new Color(1, 1, 1, 0);
-                forwardText.SetActive(false);
+                forwardIcon.color = new Color(1, 1, 1, 1);
+                forwardText.SetActive(true);
             }
         }
 

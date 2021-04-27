@@ -92,7 +92,7 @@ public class InteractiveObject : MonoBehaviour
                 waiting = true;
                 SetButtons(false);
                 popUpObj.SetActive(false);
-                IEnumerator waitCoroutine = WaitTime(trig.time / 2);
+                IEnumerator waitCoroutine = WaitTime(trig.time - 0.2f);
                 StartCoroutine(waitCoroutine);
             }
         }

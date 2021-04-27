@@ -19,7 +19,9 @@ public class MainCamera : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate() {
 
-        transform.position = Vector3.Lerp(transform.position, player.position + boom, Time.deltaTime * bias);
+//        transform.position = Vector3.Lerp(transform.position, player.position + boom, Time.deltaTime * bias);
+        transform.position = player.position + boom;
+
 
         
     }
